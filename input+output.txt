@@ -1,0 +1,47 @@
+.model small = ekta code segement and 1 ta data segment ache.
+.stack 100h = memory size
+.code = code segment 
+
+data segment ke code segment e niye aste hobe.
+
+main proc = main procedure /or main function/ shob kaj ekahnei kori 
+
+
+how to take input/output: 
+
+input: mov ah,1 eta ekta function kono ekta int type date input neyar jnno amra ah,1 use kori 
+
+funcion call + execute  : int 21h
+
+registr : mov bl,al by default shob date al e thake but ami chai shob data bl register e thakuk .(abr jodi kono input nei same vabe kaj korbo sudhu register change korbo , ekhane bh register o nite pari .
+
+
+disply output : mov ah,2 
+		mov dl,bl
+and ei 2 diyei display kora hoy and  dl register diye output korbo ,and bl diye first input ta print korbe .
+
+after print intruptor korte hbe mane execute korte hbe tai amr use korbo : int 21h  (now amader first input print kora sesh)
+
+ ekhan amra kaj ta ekdom sesh korbo tai ekta functtion likhbo: 
+
+exit:
+mov ah, 4ch
+int 21h		*ei 5a line always sesh e dite hobe thle proram final 
+		vabe stop hobe.
+main endp 
+end main
+
+			
+				VARIABLE DICLEAR 
+
+.model small 
+.stack 100h
+.data  = varible neyar jnno eta use korbo
+msg db  = msg holo vairable name and size er jnno db / define byte or define word ,but small data jnno db use kori and {jodi directly kono size dite chai thle db pore 1/2/3...100 use korte pari .
+
+Again: 
+msg1 db ? = ? mane holo user er theke kono value nite chai thle ? use korbo.
+
+
+
+

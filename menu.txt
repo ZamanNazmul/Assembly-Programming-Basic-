@@ -1,0 +1,248 @@
+struct User {
+    char phoneNumber[50];
+    char accountNumber[50];
+    char userPassword[50];
+};
+
+int totalAmount = 1000000, withdrawAmount, transferAmount, depositAmount;
+double accountNumber = 2312725042;
+char username[MAX_LENGTH];
+char password[MAX_LENGTH];
+
+void menu();
+void depositMoney();
+void withdrawMoney();
+void transferMoney();
+void accountDetails();
+void transactionDetails();
+void lastDetails();
+int registration();
+
+
+int main()
+{
+    system("color 7");
+    splashScreen();
+    delay(3);
+    system("clear");
+    system("cls");
+
+    int option;
+
+    login();
+    delay(2);
+    system("cls");
+
+    while(1)
+    {
+        menu();
+        printf("-------------------------------------------------------\n");
+        printf("ENTER YOUR CHOICE :");
+        scanf("%d", &option);
+        switch(option)
+        {
+            case 1:
+                system("cls");
+                depositMoney();
+                break;
+            case 2:
+                system("cls");
+                withdrawMoney();
+                break;
+            case 3:
+                system("cls");
+                transferMoney();
+                break;
+            case 4:
+                system("cls");
+                accountDetails();
+                break;
+            case 5:
+                system("cls");
+                transactionDetails();
+                break;
+            case 6:
+                system("cls");
+                registration();
+                break;
+            case 7:
+                system("cls");
+                lastDetails();
+                exit(0);
+            default:
+                system("cls");
+                printf("\n\n..........................<INVALID CHOICE >...................\n");
+                break;
+        }
+    }
+    getch();
+}
+
+void menu()
+{
+    printf("\n\n \t\t   WELCOME TO FUTURE BANK\n");
+    printf("\n \t\t       THE MAIN MENU\n");
+    printf("\t\t ----------------------------\n");
+    printf("\n\t\t[1].Deposit Money \t[2].Withdraw money \n");
+    printf("\n\t\t[3].Transfer money \t[4].Account Details\n");
+    printf("\n\t\t[5].Transaction details\t[6].Registration \n");
+    printf("\n\t\t[7].Exit\n");
+}
+
+void depositMoney()
+{
+    time_t tm;
+    time(&tm);
+    FILE *ptr = fopen("account.txt", "a");
+    printf("\n..........................Depositing...................... money\n");
+    printf("------------------------------------------------------------------\n");
+
+    printf("Enter the amount>");
+    scanf("%d", &depositAmount);
+    totalAmount += depositAmount;
+    printf("Money deposited.\n");
+    fprintf(ptr, "$%d Has been deposited in the account\n", depositAmount);
+    fprintf(ptr, "Date /time of the transaction %s", ctime(&tm));
+    printf("CURRENT BALANCE: $%d\n", totalAmount);
+    fclose(ptr);
+    printf("---------------------------------------\n");
+    printf("\nEnter any key to continue.........\n");
+
+    getch();
+}
+
+void withdrawMoney()
+{
+    time_t tm;
+    time(&tm);
+    FILE *ptr = fopen("account.txt", "a");
+    printf("\n......................Withdrawing money...............\n");
+    printf("--------------------------------------------------------\n");
+    printf("Enter the amount:");
+
+    scanf("%d", &withdrawAmount);
+    if (withdrawAmount > totalAmount)
+    {
+        printf("You don't have sufficient balance.\n");
+    }
+    else
+    {
+        totalAmount -= withdrawAmount;
+        printf("MONEY WITHDRAWN \n");
+        fprintf(ptr, "$%d Has been withdrawn from the account\n", withdrawAmount);
+        fprintf(ptr, "Date /time of the transaction %s", ctime(&tm));
+        printf("CURRENT BALANCE: $%d\n", totalAmount);
+    }
+    fclose(ptr);
+    printf("----------------------------------------\n");
+    printf("\nEnter any key to continue.........\n");
+
+    getch();
+}
+
+void transferMoney()
+{
+    int account;
+    time_t tm;
+    time(&tm);
+    FILE *ptr = fopen("account.txt", "a");
+    printf("\n......................TRANSFER MONEY.................\n");
+    printf("-----------------------------------------------------------\n");
+
+    printf("Enter the transfer amount: ");
+    scanf("%d", &transferAmount);
+    printf("Enter the account number you want to transfer: ");
+    scanf("%d", &account);
+    if (totalAmount < transferAmount)
+    {
+        printf("You don't have sufficient balance.\n");
+    }
+    else
+    {
+        totalAmount -= transferAmount;
+        printf("Money transferred \n");
+        printf("Current balance: $%d\n", totalAmount);
+        fprintf(ptr, "$%d Has been transferred from the account\n", transferAmount);
+        fprintf(ptr, "Date /time of the transaction %s", ctime(&tm));
+    }
+    fclose(ptr);
+    printf("----------------------------------------\n");
+    printf("\nEnter any key to continue.........\n");
+
+    getch();
+}
+
+void accountDetails()
+{
+    printf("\n......................... ACCOUNT DETAILS.............\n");
+    printf("---------------------------------------------------------\n");
+    printf("\n NAME: HABIBA RAHMAN \n");
+    printf("\n ACCOUNT NUMBER: %.0lf\n", accountNumber);
+    printf("\n TOTAL BALANCE: $%d\n", totalAmount);
+    printf("-------------------------------------\n");
+    printf("\n Press any key to continue..........\n");
+    getch();
+}
+
+void transactionDetails()
+{
+    FILE *ptr = fopen("account.txt", "r");
+    char c = fgetc(ptr);
+    if (feof(ptr))
+    {
+        printf("No recent transactions.\n");
+    }
+    else
+    {
+        printf("\n \tTRANSACTION DETAILS.....\n");
+        printf("------------------------------------\n");
+
+        while (c != EOF)
+        {
+            printf("%c", c);
+            c = fgetc(ptr);
+        }
+        printf("\n---------------------------------------\n");
+        printf("\nEnter any key to continue.........\n");
+    }
+    getch();
+}
+
+void lastDetails()
+{
+    printf("\n\nNAME: HABIBA RAHMAN \n");
+    printf("\nACCOUNT NUMBER: %.0lf\n", accountNumber);
+    printf("\nTOTAL BALANCE: %d\n", totalAmount);
+    printf("--------------------------------------\n");
+    printf("\nPress any key to continue..........\n");
+    getch();
+}
+
+int registration()
+{
+    struct User user, user1;
+    FILE *fp;
+    char filename[50], phone[50], password[50];
+    int opt, choice ;
+    char cont = 'y';
+    float amount;
+
+    printf("Enter your account number:\t");
+    scanf("%s", user.accountNumber);
+    printf("Enter your phone number:\t");
+    scanf("%s", user.phoneNumber);
+    printf("Enter your new password:\t");
+    scanf("%s", user.userPassword);
+    strcpy(filename, user.phoneNumber);
+    fp = fopen(strcat(filename, ".dat"), "w");
+    fwrite(&user, sizeof(struct User), 1, fp);
+    if (fwrite != 0)
+    {
+        printf("\n\nAccount successfully registered.");
+    }
+    else
+    {
+        printf("\n\nSomething went wrong. Please try again.");
+    }
+    fclose(fp);
+}

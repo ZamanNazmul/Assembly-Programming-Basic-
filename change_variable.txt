@@ -1,0 +1,198 @@
+line no 2 : phone[50] = phoneNumber[50]
+line no 3 : ac[50] = accountNumber[50]
+line no 4 : password[50] = userPassword[50]
+
+line no 10 : 
+amount = 1000000  to totalAmount = 1000000
+wit_amount = withdrawAmount
+trn_amount =transferAmount
+dip_amount = depositAmount
+
+line no 11 : 
+acu_num=2312725042 to accountNumber = 2312725042;
+
+line no 25 : 
+choice = option 
+
+line no 38 : 
+choice = option 
+
+line no 39 : 
+choice = option 
+
+line no 43: 
+deposit_money(); = depositMoney();
+
+line no 47 : 
+withdrow_money(); =  withdrawMoney();
+
+line no 51: 
+transfer_money(); =  transferMoney();
+
+line no 55: 
+account_details(); = accountDetails();
+
+line no 59: 
+transction_details(); =  transactionDetails();
+
+line no 64:  
+registation(); =  registration();
+
+line no 68 : 
+ last_details(); =   lastDetails();
+
+line no 94 : 
+deposit_money() = depositMoney()
+
+line no 103 : 
+dip_amount = depositAmount
+
+line no 104: 
+dip_amount =  depositAmount
+amount = totalAmount
+
+line no 106 : 
+dip_amount = depositAmount
+
+line no 108 :
+amount =  totalAmount
+
+line no 116 : 
+withdrow_money() = withdrawMoney()
+
+line no 125 and 126 : 
+wit_amount = withdrawAmount
+
+line no 133: 
+ amount-=wit_amount; = totalAmount -= withdrawAmount;
+
+
+line 137 : 
+amount = totalAmount
+
+line no 144: 
+
+ transfer_money()  = transferMoney()
+
+line no 147  : 
+int ac; = int account;
+
+
+line no 156: 
+trn_amount = transferAmount
+
+line no 158 : 
+ac = account
+
+line no 
+
+
+if(amount<trn_amount) =  if (totalAmount < transferAmount)
+
+
+line no 167 : 
+ amount-=trn_amount = totalAmount -= transferAmount;
+
+line no 169 : 
+amount = totalAmount
+
+line no 170 : 
+trn_amount = transferAmount
+
+line 188: 
+acu_num = accountNumber
+
+line no 189 : 
+amount = totalAmount 
+
+line no 195 : 
+transction_details() = transactionDetails()
+
+
+line 224: 
+last_details() = lastDetails()
+
+line no 228: 
+acu_num = accountNumber
+
+line no 229 : 
+amount = totalAmount 
+
+line no 238 : 
+pword = password
+
+line no 336: 
+ struct user usr,usr1; =  struct User user, user1;
+
+line 239 : 
+opt =  opt
+choice = choice 
+
+line no 243 : 
+usr.ac = user.accountNumber
+
+line no 245 : 
+usr.phone = user.phoneNumber
+
+line no 247 : 
+usr.password = user.userPassword
+
+line no 248 : 
+usr.phone = user.phoneNumber
+
+line no 250  :
+fwrite(&usr,sizeof(struct user),1,fp); =   fwrite(&user, sizeof(struct User), 1, fp);
+
+
+
+		login 
+
+line no 6 to 10: 
+
+amount =  totalAmount; 
+int wit_amount; = withdrawAmount;
+ int trn_amount; = transferAmount;
+int dip_amount; = depositAmount;
+ double acu_num;  = accountNumber;
+
+line no 25: 
+person.amount=1000000; =  person.totalAmount = 1000000;
+
+line no 26 : 
+ person.acu_num=2312725042; =  person.accountNumber = 2312725042;
+
+line no 29: 
+
+
+
+
+
+
+
+
+			Future bank : 
+line no : 11 to 16 
+
+void displayMenu();
+void depositMoney();
+void withdrawMoney();
+void transferMoney();
+void accountDetails();
+void transactionDetails();
+void lastDetails();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+#include <stdio.h>                ///ALL HEADER FILES///
+#include <stdlib.h>
+#include "login.h"
+#include <time.h>
+#include <dos.h>
+#include "splash_screen.h"
+#include "menu.h"
+
+void displaySplashScreen(void);   ///ALL FUNCTIONS///
+void displayMenu();
+void depositMoney();
+void withdrawMoney();
+void transferMoney();
+void accountDetails();
+void transactionDetails();
+void lastDetails();

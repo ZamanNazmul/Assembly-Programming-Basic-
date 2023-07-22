@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX_LENGTH 100
+
+struct info {
+    int totalAmount;
+    int withdrawAmount;
+    int transferAmount;
+    int depositAmount;
+    double accountNumber;
+    char username[MAX_LENGTH];
+    char password[MAX_LENGTH];
+};
+
+int login() {
+    FILE* file = fopen("information.txt", "r");
+    if (file == NULL) {
+        printf("Error opening data file.\n");
+        return 0;
+    }
+    struct info person;
+    person.totalAmount = 1000000;
+    person.accountNumber = 2312725042;
+    fscanf(file, "%s %s", person.username, person.password);
+    fclose(file);
+    char inputUsername[MAX_LENGTH];
+    char inputPassword[MAX_LENGTH];
+    while (1) {
+        printf("\n\n\n\t\tENTER USERNAME: ");
+        scanf("%s", inputUsername);
+        printf("\n\t\tENTER PASSWORD: ");
+        scanf("%s", inputPassword);
+        if (strcmp(person.username, inputUsername) == 0 && strcmp(person.password, inputPassword) == 0) {
+            printf("\n\n\t\!PASSWORD MATCHED! LOADING>");
+            for (int i = 0; i <= 6; i++) {
+                fordelay(100000000);
+                printf(".");
+            }
+            break;
+        } else {
+            printf("\n----------------------------------------------------------\n");
+            printf("\n<Invalid username or password>....\n");
+            printf("\n<please try again>....");
+            printf("\n----------------------------------------------------------\n");
+        }
+    }
+}
+
+void fordelay(int j) {
+    int i, k;
+    for (i = 0; i < j; i++)
+        k = i;
+}
+
+
+
+
+
+
+
+

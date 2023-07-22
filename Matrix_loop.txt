@@ -1,0 +1,32 @@
+include ’emu8086 .inc ’
+ . model small
+ . stack 100 h
+ . data
+
+ var db ’***** $’
+
+. code
+
+main proc
+ mov ax , @data
+mov ds , ax
+
+ mov cx ,5
+
+loop1 :
+mov ah ,9
+ lea dx , var
+ int 21 h
+
+ mov ah ,2
+ mov dl ,10
+ int 21 h
+ mov dl ,13
+ int 21 h
+
+ loop loop1
+ exit :
+ mov ah ,4 ch
+int 21 h
+main endp
+ end main
